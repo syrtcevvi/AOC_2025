@@ -6,16 +6,16 @@ use warnings;
 use utf8;
 
 my $pos_at_zero_counter = 0;
-my $init_pos = 50;
+my $pos = 50;
 while (my $row = <STDIN>) {
     my ($rotation, $distance) = $row =~ m/(.)(\d+)/;
     if ($rotation eq 'L') {
-        $init_pos = ($init_pos - $distance) % 100;
+        $pos = ($pos - $distance) % 100;
     } elsif ($rotation eq 'R') {
-        $init_pos = ($init_pos + $distance) % 100;
+        $pos = ($pos + $distance) % 100;
     }
 
-    if ($init_pos == 0) {
+    if ($pos == 0) {
         $pos_at_zero_counter++;
     }
 }
